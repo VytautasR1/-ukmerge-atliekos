@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="lt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827"><title>Ukmergės šiukšlės</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#f4f5f7;margin:0;color:#111827}
+main{max-width:600px;margin:auto;padding:22px 18px 40px} h1{font-size:30px;margin:8px 0 6px} .muted{color:#6b7280}
+.card{background:white;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 2px 12px #00000010}
+label{display:block;font-size:14px;color:#6b7280;margin:12px 0 6px} select,input,button{width:100%;box-sizing:border-box;padding:13px;border:1px solid #d1d5db;border-radius:12px;font-size:16px;background:white}
+button{background:#111827;color:white;border:0;margin-top:14px;font-weight:600} .next{font-size:22px;font-weight:700} .date{font-size:17px;margin-top:4px} .pill{display:inline-block;padding:6px 9px;border-radius:999px;background:#eef2ff;margin:4px 4px 0 0;font-size:13px}
+.row{padding:12px 0;border-bottom:1px solid #eee} .row:last-child{border-bottom:0}
+</style></head>
+<body><main>
+<h1>Ukmergės šiukšlės</h1><div class="muted">2026 m. birželio–gruodžio grafikas</div>
+<div class="card">
+<label>Gatvė</label><select id="street"><option value="">Pasirink gatvę</option></select>
+<label>Namo numeris</label><input id="number" inputmode="numeric" placeholder="pvz. 25">
+<button onclick="save()">Išsaugoti adresą</button>
+</div>
+<div id="result"></div>
+<div class="card muted" style="font-size:13px">Grafikas paimtas iš oficialaus Ukmergės rajono savivaldybės 2026 m. birželio–gruodžio grafiko. Konteinerius reikia išstumti iki 7:00.</div>
+</main>
+<script>
+const routes={"Dukstynos": {"mixed": [["2026-06", 8, 22], ["2026-07", 6, 20], ["2026-08", 3, 17, 31], ["2026-09", 14, 28], ["2026-10", 12, 26], ["2026-11", 9, 23], ["2026-12", 7, 21]], "pack": [["2026-06", 1, 22], ["2026-07", 13], ["2026-08", 3, 24], ["2026-09", 14], ["2026-10", 5, 26], ["2026-11", 16], ["2026-12", 7]], "glass": [["2026-06", 31], ["2026-12", 30]], "streets": ["A. Baranausko g.", "Anykščių skg.", "Bažnyčios g.", "Darbininkų g.", "Daržų g.", "J. Basanavičiaus g.", "J. Biliūno g.", "Kalkių g.", "Kalvių g.", "Kareivinių g.", "Kranto g.", "Lygioji g.", "Maironio g.", "Maironio skg.", "Paupio g.", "Piliakalnio g.", "Ramybės skg.", "S. Daukanto g.", "Šlaitų g.", "Šlaitų skg.", "Šviesos g.", "Utenos g.", "V. Krėvės g.", "V. Kudirkos g.", "V. Kudirkos skg.", "Vaižganto g.", "Vilkmergėlės g.", "Virėjų g.", "Vytauto g.", "Žuvų g."]}, "Gėlyno": {"mixed": [["2026-06", 2, 16, 30], ["2026-07", 14, 28], ["2026-08", 11, 25], ["2026-09", 8, 22], ["2026-10", 6, 20], ["2026-11", 3, 17], ["2026-12", 1, 15]], "pack": [["2026-06", 2, 23], ["2026-07", 14], ["2026-08", 4, 25], ["2026-09", 15], ["2026-10", 6, 27], ["2026-11", 17], ["2026-12", 8]], "glass": [["2026-06", 1], ["2026-12", 1]], "streets": ["Aguonų g.", "Akloji g.", "Alytaus g.", "Alyvų g.", "Aukštaičių g.", "Beržų g.", "Bugenėlių g.", "Bugenių g.", "Dirvonų g.", "Dirvonų skg.", "Dzūkų g.", "Gražinos g.", "Gvazdikų g.", "Jurginų g.", "Kalno g.", "Linų g.", "Malkų g.", "Matininkų g.", "Mėtų g.", "Naujoji g.", "Pabaisko g.", "Pašilės g.", "Pavasario g.", "Pavasario skg.", "Pergalės g.", "Pievų g.", "Pivonijos g.", "Pušyno g.", "Radastų g.", "Ramunių g.", "Rožių g.", "S. Nėries g.", "Siauroji g.", "Šilagėlių g.", "Šilo g.", "Trakų g.", "Trakų skg.", "Tulpių g.", "Vaitkuškio g.", "Vėjų g.", "Vilniaus g.", "Vilties g.", "Žibučių g.", "Žilvičių g."]}, "Užupio": {"mixed": [["2026-06", 2, 16, 30], ["2026-07", 14, 28], ["2026-08", 11, 25], ["2026-09", 8, 22], ["2026-10", 6, 20], ["2026-11", 3, 17], ["2026-12", 1, 15]], "pack": [["2026-06", 3, 24], ["2026-07", 15], ["2026-08", 5, 26], ["2026-09", 16], ["2026-10", 7, 28], ["2026-11", 18], ["2026-12", 9]], "glass": [["2026-06", 2], ["2026-12", 2]], "streets": ["Antakalnio g.", "Gruodžio 17-osios g.", "Gružų g.", "Jaunimo g.", "Kreivoji g.", "Kūdrų g.", "Koklių fabriko g.", "Laukų g.", "Lelijų g.", "Liūnų g.", "Lyduokių g.", "Miškų g.", "Nuotekų g.", "Rusų g.", "Smėlių g.", "Šventoji g.", "Vasarnamių g.", "Vilniaus g.", "Žalioji g."]}, "Krekšlių": {"mixed": [["2026-06", 10, 24], ["2026-07", 8, 22], ["2026-08", 5, 19], ["2026-09", 2, 16, 30], ["2026-10", 14, 28], ["2026-11", 11, 25], ["2026-12", 9, 23]], "pack": [["2026-06", 4, 25], ["2026-07", 16], ["2026-08", 6, 27], ["2026-09", 17], ["2026-10", 8, 29], ["2026-11", 19], ["2026-12", 10]], "glass": [["2026-06", 3], ["2026-12", 3]], "streets": ["A.Vienuolio-Žukausko g.", "Atgimimo g.", "Ąžuolų g.", "Draugystės g.", "Eglių g.", "Geologų g.", "Jaunimo skg.", "Kaštonų g.", "Klevų g.", "Krekšlių g.", "Krekšlių skg.", "Lazdynų g.", "Nuotekų g.", "Nuotekų skg.", "Mokyklos g.", "Mėlynių g.", "Pamiškės g.", "Pilėnų g.", "Putinų g.", "Santakos g.", "Slėnio g.", "Statybininkų g.", "Šaltalankių g.", "Šermukšnių g.", "Taikos g.", "Topolių g.", "Tujų g.", "Vienkiemio g.", "Vingio g.", "Vyšnių g."]}, "Šlapių": {"mixed": [["2026-06", 10, 24], ["2026-07", 8, 22], ["2026-08", 5, 19], ["2026-09", 2, 16, 30], ["2026-10", 14, 28], ["2026-11", 11, 25], ["2026-12", 9, 23]], "pack": [["2026-06", 5, 26], ["2026-07", 17], ["2026-08", 7, 28], ["2026-09", 18], ["2026-10", 9, 30], ["2026-11", 20], ["2026-12", 11]], "glass": [["2026-06", 4], ["2026-12", 4]], "streets": ["A. Smetonos g.", "Ajerų g.", "Artilerijos g.", "Artilerijos skg.", "Aušros g.", "Birutės g.", "Deltuvos g.", "Dobilų g.", "Gailių g.", "Gedimino g.", "Gedimino skg.", "Gėlių g.", "Gogolio g.", "Jogailos g.", "Kapinės g.", "Kauno g.", "Klaipėdos g.", "L. Giros g.", "Lubinų g.", "Medelyno skg.", "Miglių g.", "Mildos g.", "Mindaugo g.", "P. Cvirkos g.", "Pakalnės g.", "Paparčių g.", "Purienų g.", "Ramygalos g.", "Rugiagėlių g.", "Rūtų g.", "Senoji g.", "Smilgų g.", "Sodų g.", "Stoties g.", "Šalpusnių g.", "Širvintų g.", "Šlaitų g.", "Tvenkinių g.", "Tvenkinių skg.", "Vasario 16-osios g.", "Vikių g.", "Vilniaus g.", "Viržių g.", "Žalgirio g.", "Žemaičių g.", "Žemaitės g.", "Žiedo g."]}};
+const street=document.getElementById('street'), num=document.getElementById('number'), result=document.getElementById('result');
+const all=[...new Set(Object.values(routes).flatMap(r=>r.streets))].sort((a,b)=>a.localeCompare(b,'lt'));
+all.forEach(s=>{let o=document.createElement('option');o.value=s;o.textContent=s;street.appendChild(o)});
+
+function routeFor(s,n){
+ for(const [r,d] of Object.entries(routes)){
+   if(!d.streets.includes(s)) continue;
+   if(s==="Nuotekų g." && r==="Užupio") return n>=1&&n<=47 ? r:null;
+   if(s==="Nuotekų g." && r==="Krekšlių") return n>=48 ? r:null;
+   if(s==="Vilniaus g." && r==="Gėlyno") return n>=35&&n<=113&&n%2===1 ? r:null;
+   if(s==="Vilniaus g." && r==="Užupio") return n>=30&&n<=138&&n%2===0 ? r:null;
+   if(s==="Vilniaus g." && r==="Šlapių") return (n<=28&&n%2===0)||(n<=33&&n%2===1) ? r:null;
+   if(s==="Šlaitų g." && r==="Dukstynos") return n>=13 ? r:null;
+   if(s==="Šlaitų g." && r==="Šlapių") return n>=1&&n<=12 ? r:null;
+   return r;
+ }
+ return null;
+}
+function datesFor(items){
+ const out=[]; for(const x of items){const [ym,...ds]=x; for(const d of ds) out.push(ym+'-'+String(d).padStart(2,'0'));}
+ return out.map(x=>new Date(x+'T00:00:00')).filter(d=>!isNaN(d)).sort((a,b)=>a-b);
+}
+const names={mixed:"Mišrios atliekos",pack:"Plastikas ir popierius",glass:"Stiklas"};
+function nextDates(r){
+ const now=new Date(); now.setHours(0,0,0,0); let arr=[];
+ for(const k of ['mixed','pack','glass']) for(const d of datesFor(routes[r][k])) if(d>=now) arr.push({d,k});
+ return arr.sort((a,b)=>a.d-b.d).slice(0,6);
+}
+function render(){
+ const s=street.value,n=parseInt(num.value,10),r=routeFor(s,n);
+ if(!s||!n){result.innerHTML='';return}
+ if(!r){result.innerHTML='<div class="card"><b>Šiam adresui maršruto nenustačiau.</b><br><span class="muted">Tikėtina, kad gatvėje yra specialus numerių intervalas.</span></div>';return}
+ localStorage.setItem('addr',JSON.stringify({s,n}));
+ const arr=nextDates(r), first=arr[0];
+ result.innerHTML='<div class="card"><div class="muted">'+s+' '+n+' · '+r+' maršrutas</div><div class="next" style="margin-top:8px">Kitas išvežimas</div><div class="date">'+(first?fmt(first.d)+' — '+names[first.k]:'Grafiko nebėra')+'</div><div style="margin-top:12px">'+arr.map(x=>'<div class="row"><b>'+fmt(x.d)+'</b><br>'+names[x.k]+'</div>').join('')+'</div></div>';
+}
+function fmt(d){return d.toLocaleDateString('lt-LT',{weekday:'long',day:'numeric',month:'long'})}
+function save(){render()}
+const old=JSON.parse(localStorage.getItem('addr')||'null'); if(old){street.value=old.s;num.value=old.n;render()}
+</script></body></html>
