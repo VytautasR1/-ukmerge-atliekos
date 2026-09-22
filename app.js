@@ -33,13 +33,30 @@ function next(r){
  return a.sort((a,b)=>a.d-b.d).slice(0,8);
 }
 function fmt(d){return d.toLocaleDateString("lt-LT",{weekday:"long",day:"numeric",month:"long"})}
+function dayDiff(d){
+ const now=new Date(); now.setHours(0,0,0,0);
+ return Math.round((d-now)/86400000);
+}
 function render(){
  const s=street.value,n=parseInt(number.value,10),r=routeFor(s,n);
+ document.body.classList.remove("collection-today","collection-tomorrow");
  if(!s||!n){result.innerHTML="";return}
  if(!r){result.innerHTML='<div class="card"><b>Šiam adresui maršruto dar nenustačiau.</b></div>';return}
  localStorage.setItem("address",JSON.stringify({s,n}));
  const a=next(r);
- result.innerHTML=`<div class="card"><div class="muted">${s} ${n} · ${r} maršrutas</div><div class="next" style="margin-top:8px">Kitas išvežimas</div><div class="date">${a[0]?`${fmt(a[0].d)} — ${names[a[0].k]}`:"Grafiko nebėra"}</div>${a.map(x=>`<div class="row"><b>${fmt(x.d)}</b><br>${names[x.k]}</div>`).join("")}</div>`;
+ const first=a[0];
+ let status="";
+ if(first){
+  const diff=dayDiff(first.d);
+  if(diff===0){
+   document.body.classList.add("collection-today");
+   status='<div class="collection-status today">ŠIANDIEN VEŽA</div>';
+  } else if(diff===1){
+   document.body.classList.add("collection-tomorrow");
+   status='<div class="collection-status tomorrow">RYTOJ VEŽA</div>';
+  }
+ }
+ result.innerHTML=`<div class="card"><div class="muted">${s} ${n} · ${r} maršrutas</div>${status}<div class="next" style="margin-top:8px">Kitas išvežimas</div><div class="date">${first?`${fmt(first.d)} — ${names[first.k]}`:"Grafiko nebėra"}</div>${a.map(x=>`<div class="row"><b>${fmt(x.d)}</b><br>${names[x.k]}</div>`).join("")}</div>`;
 }
 function saveAddress(){render()}
 async function enableNotifications(){

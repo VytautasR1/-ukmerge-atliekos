@@ -9,7 +9,9 @@
 <link rel="manifest" href="./manifest.json">
 <title>Ukmergės atliekos</title>
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#f4f5f7;margin:0;color:#111827}
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#f4f5f7;margin:0;color:#111827;transition:background .25s ease}
+body.collection-today{background:#dff7e3}
+body.collection-tomorrow{background:#fff4c2}
 main{max-width:600px;margin:auto;padding:22px 18px 40px}
 h1{font-size:30px;margin:8px 0 6px}.muted{color:#6b7280}
 .card{background:#fff;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 2px 12px #00000010}
@@ -20,6 +22,9 @@ button.secondary{background:#fff;color:#111827;border:1px solid #d1d5db}
 .next{font-size:22px;font-weight:700}.date{font-size:17px;margin-top:4px}
 .row{padding:12px 0;border-bottom:1px solid #eee}.row:last-child{border-bottom:0}
 .status{padding:10px 12px;border-radius:12px;background:#f3f4f6;margin-top:10px}
+.collection-status{margin:14px 0 4px;padding:14px;border-radius:14px;font-size:20px;font-weight:800;text-align:center}
+.collection-status.today{background:#b9edc3;color:#14532d}
+.collection-status.tomorrow{background:#ffe680;color:#713f12}
 </style>
 </head>
 <body>
