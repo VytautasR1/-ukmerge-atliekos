@@ -2,7 +2,7 @@
   "source": "https://www.ukmerge.lt/misrios-komunalines-atliekos/",
   "period": "2026-06/2026-12",
   "routes": {
-    "Dukstynos": {
+    "Gėlyno": {
       "mixed": [
         [
           "2026-09",
@@ -51,7 +51,7 @@
         ]
       ]
     },
-    "Gėlyno": {
+    "Užupio": {
       "mixed": [
         [
           "2026-09",
@@ -100,7 +100,7 @@
         ]
       ]
     },
-    "Užupio": {
+    "Krekšlių": {
       "mixed": [
         [
           "2026-09",
@@ -126,20 +126,20 @@
       "pack": [
         [
           "2026-09",
-          15
+          16
         ],
         [
           "2026-10",
-          6,
-          27
+          7,
+          28
         ],
         [
           "2026-11",
-          17
+          18
         ],
         [
           "2026-12",
-          8
+          9
         ]
       ],
       "glass": [
@@ -149,7 +149,7 @@
         ]
       ]
     },
-    "Krekšlių": {
+    "Šlapių": {
       "mixed": [
         [
           "2026-09",
@@ -199,7 +199,7 @@
         ]
       ]
     },
-    "Šlapių": {
+    "Dukstynos": {
       "mixed": [
         [
           "2026-09",
@@ -249,5 +249,6 @@
         ]
       ]
     }
-  }
+  },
+  "pdf": "https://www.ukmerge.lt/uploads/Documents/document_740/2026_m._birelio-gruodio_mn._Ukmergs_miesto_gyventoj_komunalini_ir_pakuoi_atliek_surinkimo_grafikas.pdf"
 }
