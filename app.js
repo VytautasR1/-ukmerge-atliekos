@@ -1,10 +1,13 @@
 const routes={
-"Dukstynos":{"mixed":[["2026-09",14,28],["2026-10",12,26],["2026-11",9,23],["2026-12",7,21]],"pack":[["2026-09",14],["2026-10",5,26],["2026-11",16],["2026-12",7]],"glass":[["2026-12",30]],"streets":["A. Baranausko g.","Anykščių skg.","Bažnyčios g.","Darbininkų g.","Daržų g.","J. Basanavičiaus g.","J. Biliūno g.","Kalkių g.","Kalvių g.","Kareivinių g.","Kranto g.","Lygioji g.","Maironio g.","Maironio skg.","Paupio g.","Piliakalnio g.","Ramybės skg.","S. Daukanto g.","Šlaitų g.","Šlaitų skg.","Šviesos g.","Utenos g.","V. Krėvės g.","V. Kudirkos g.","V. Kudirkos skg.","Vaižganto g.","Vilkmergėlės g.","Virėjų g.","Vytauto g.","Žuvų g."]},
-"Gėlyno":{"mixed":[["2026-09",8,22],["2026-10",6,20],["2026-11",3,17],["2026-12",1,15]],"pack":[["2026-09",15],["2026-10",6,27],["2026-11",17],["2026-12",8]],"glass":[["2026-12",1]],"streets":["Aguonų g.","Akloji g.","Alytaus g.","Alyvų g.","Aukštaičių g.","Beržų g.","Bugenėlių g.","Bugenių g.","Dirvonų g.","Dirvonų skg.","Dzūkų g.","Gražinos g.","Gvazdikų g.","Jurginų g.","Kalno g.","Linų g.","Malkų g.","Matininkų g.","Mėtų g.","Naujoji g.","Pabaisko g.","Pašilės g.","Pavasario g.","Pavasario skg.","Pergalės g.","Pievų g.","Pivonijos g.","Pušyno g.","Radastų g.","Ramunių g.","Rožių g.","S. Nėries g.","Siauroji g.","Šilagėlių g.","Šilo g.","Trakų g.","Trakų skg.","Tulpių g.","Vaitkuškio g.","Vėjų g.","Vilniaus g.","Vilties g.","Žibučių g.","Žilvičių g."]},
-"Užupio":{"mixed":[["2026-09",8,22],["2026-10",6,20],["2026-11",3,17],["2026-12",1,15]],"pack":[["2026-09",16],["2026-10",7,28],["2026-11",18],["2026-12",9]],"glass":[["2026-12",2]],"streets":["Antakalnio g.","Gruodžio 17-osios g.","Gružų g.","Jaunimo g.","Kreivoji g.","Kūdrų g.","Koklių fabriko g.","Laukų g.","Lelijų g.","Liūnų g.","Lyduokių g.","Miškų g.","Nuotekų g.","Rusų g.","Smėlių g.","Šventoji g.","Vasarnamių g.","Vilniaus g.","Žalioji g."]},
-"Krekšlių":{"mixed":[["2026-09",2,16,30],["2026-10",14,28],["2026-11",11,25],["2026-12",9,23]],"pack":[["2026-09",17],["2026-10",8,29],["2026-11",19],["2026-12",10]],"glass":[["2026-12",3]],"streets":["A.Vienuolio-Žukausko g.","Atgimimo g.","Ąžuolų g.","Draugystės g.","Eglių g.","Geologų g.","Jaunimo skg.","Kaštonų g.","Klevų g.","Krekšlių g.","Krekšlių skg.","Lazdynų g.","Nuotekų g.","Nuotekų skg.","Mokyklos g.","Mėlynių g.","Pamiškės g.","Pilėnų g.","Putinų g.","Santakos g.","Slėnio g.","Statybininkų g.","Šaltalankių g.","Šermukšnių g.","Taikos g.","Topolių g.","Tujų g.","Vienkiemio g.","Vingio g.","Vyšnių g."]},
-"Šlapių":{"mixed":[["2026-09",2,16,30],["2026-10",14,28],["2026-11",11,25],["2026-12",9,23]],"pack":[["2026-09",18],["2026-10",9,30],["2026-11",20],["2026-12",11]],"glass":[["2026-12",4]],"streets":["A. Smetonos g.","Ajerų g.","Artilerijos g.","Artilerijos skg.","Aušros g.","Birutės g.","Deltuvos g.","Dobilų g.","Gailių g.","Gedimino g.","Gedimino skg.","Gėlių g.","Gogolio g.","Jogailos g.","Kapinės g.","Kauno g.","Klaipėdos g.","L. Giros g.","Lubinų g.","Medelyno skg.","Miglių g.","Mildos g.","Mindaugo g.","P. Cvirkos g.","Pakalnės g.","Paparčių g.","Purienų g.","Ramygalos g.","Rugiagėlių g.","Rūtų g.","Senoji g.","Smilgų g.","Sodų g.","Stoties g.","Šalpusnių g.","Širvintų g.","Šlaitų g.","Tvenkinių g.","Tvenkinių skg.","Vasario 16-osios g.","Vikių g.","Vilniaus g.","Viržių g.","Žalgirio g.","Žemaičių g.","Žemaitės g.","Žiedo g."]}};
+  "Dukstynos":{"streets":["A. Baranausko g.","Anykščių skg.","Bažnyčios g.","Darbininkų g.","Daržų g.","J. Basanavičiaus g.","J. Biliūno g.","Kalkių g.","Kalvių g.","Kareivinių g.","Kranto g.","Lygioji g.","Maironio g.","Maironio skg.","Paupio g.","Piliakalnio g.","Ramybės skg.","S. Daukanto g.","Šlaitų g.","Šlaitų skg.","Šviesos g.","Utenos g.","V. Krėvės g.","V. Kudirkos g.","V. Kudirkos skg.","Vaižganto g.","Vilkmergėlės g.","Virėjų g.","Vytauto g.","Žuvų g."]},
+  "Gėlyno":{"streets":["Aguonų g.","Akloji g.","Alytaus g.","Alyvų g.","Aukštaičių g.","Beržų g.","Bugenėlių g.","Bugenių g.","Dirvonų g.","Dirvonų skg.","Dzūkų g.","Gražinos g.","Gvazdikų g.","Jurginų g.","Kalno g.","Linų g.","Malkų g.","Matininkų g.","Mėtų g.","Naujoji g.","Pabaisko g.","Pašilės g.","Pavasario g.","Pavasario skg.","Pergalės g.","Pievų g.","Pivonijos g.","Pušyno g.","Radastų g.","Ramunių g.","Rožių g.","S. Nėries g.","Siauroji g.","Šilagėlių g.","Šilo g.","Trakų g.","Trakų skg.","Tulpių g.","Vaitkuškio g.","Vėjų g.","Vilniaus g.","Vilties g.","Žibučių g.","Žilvičių g."]},
+  "Užupio":{"streets":["Antakalnio g.","Gruodžio 17-osios g.","Gružų g.","Jaunimo g.","Kreivoji g.","Kūdrų g.","Koklių fabriko g.","Laukų g.","Lelijų g.","Liūnų g.","Lyduokių g.","Miškų g.","Nuotekų g.","Rusų g.","Smėlių g.","Šventoji g.","Vasarnamių g.","Vilniaus g.","Žalioji g."]},
+  "Krekšlių":{"streets":["A.Vienuolio-Žukausko g.","Atgimimo g.","Ąžuolų g.","Draugystės g.","Eglių g.","Geologų g.","Jaunimo skg.","Kaštonų g.","Klevų g.","Krekšlių g.","Krekšlių skg.","Lazdynų g.","Nuotekų g.","Nuotekų skg.","Mokyklos g.","Mėlynių g.","Pamiškės g.","Pilėnų g.","Putinų g.","Santakos g.","Slėnio g.","Statybininkų g.","Šaltalankių g.","Šermukšnių g.","Taikos g.","Topolių g.","Tujų g.","Vienkiemio g.","Vingio g.","Vyšnių g."]},
+  "Šlapių":{"streets":["A. Smetonos g.","Ajerų g.","Artilerijos g.","Artilerijos skg.","Aušros g.","Birutės g.","Deltuvos g.","Dobilų g.","Gailių g.","Gedimino g.","Gedimino skg.","Gėlių g.","Gogolio g.","Jogailos g.","Kapinės g.","Kauno g.","Klaipėdos g.","L. Giros g.","Lubinų g.","Medelyno skg.","Miglių g.","Mildos g.","Mindaugo g.","P. Cvirkos g.","Pakalnės g.","Paparčių g.","Purienų g.","Ramygalos g.","Rugiagėlių g.","Rūtų g.","Senoji g.","Smilgų g.","Sodų g.","Stoties g.","Šalpusnių g.","Širvintų g.","Šlaitų g.","Tvenkinių g.","Tvenkinių skg.","Vasario 16-osios g.","Vikių g.","Vilniaus g.","Viržių g.","Žalgirio g.","Žemaičių g.","Žemaitės g.","Žiedo g."]}
+};
+
 const names={mixed:"Mišrios atliekos",pack:"Plastikas ir popierius",glass:"Stiklas"};
+let schedule={routes:{}};
 const street=document.querySelector("#street"), number=document.querySelector("#number"), result=document.querySelector("#result"), ns=document.querySelector("#notifyStatus");
 const all=[...new Set(Object.values(routes).flatMap(x=>x.streets))].sort((a,b)=>a.localeCompare(b,"lt"));
 all.forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;street.appendChild(o)});
@@ -28,8 +31,9 @@ function dates(items){
  return out;
 }
 function next(r){
+ const data=schedule.routes[r]||{};
  const now=new Date();now.setHours(0,0,0,0);let a=[];
- for(const k of Object.keys(names))for(const d of dates(routes[r][k]||[]))if(d>=now)a.push({d,k});
+ for(const k of Object.keys(names))for(const d of dates(data[k]||[]))if(d>=now)a.push({d,k});
  return a.sort((a,b)=>a.d-b.d).slice(0,8);
 }
 function fmt(d){return d.toLocaleDateString("lt-LT",{weekday:"long",day:"numeric",month:"long"})}
@@ -69,5 +73,18 @@ async function enableNotifications(){
  }
 }
 if("serviceWorker" in navigator) navigator.serviceWorker.register("./service-worker.js").catch(console.error);
-const old=JSON.parse(localStorage.getItem("address")||"null");
-if(old){street.value=old.s;number.value=old.n;render()}
+async function loadSchedule(){
+ try{
+  const res=await fetch(`./schedule.json?${Date.now()}`,{cache:"no-store"});
+  if(!res.ok)throw new Error(`schedule.json ${res.status}`);
+  const data=await res.json();
+  if(!data.routes||Object.keys(data.routes).length!==Object.keys(routes).length)throw new Error("Neteisingas grafiko formatas");
+  schedule=data;
+ }catch(e){
+  console.error("Nepavyko nuskaityti grafiko",e);
+  schedule={routes:{}};
+ }
+ const old=JSON.parse(localStorage.getItem("address")||"null");
+ if(old){street.value=old.s;number.value=old.n;render()}
+}
+loadSchedule();
